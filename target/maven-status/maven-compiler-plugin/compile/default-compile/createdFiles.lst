@@ -54,6 +54,7 @@ com\api\models\Ciudad.class
 com\api\controllers\RegistroSesionController.class
 com\api\service\ActividadPersonalServiceImpl.class
 com\api\controllers\TipoUsuarioController.class
+com\api\CorsConfig.class
 com\api\serviceinterface\IActividadPersonalService.class
 com\api\serviceinterface\ICumplimientoService.class
 com\api\controllers\ActividadEquipoController.class

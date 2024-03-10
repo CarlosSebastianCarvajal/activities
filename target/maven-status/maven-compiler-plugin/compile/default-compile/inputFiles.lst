@@ -18,6 +18,7 @@ C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\ap
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\serviceinterface\IActividadService.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\service\ActividadPersonalServiceImpl.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\controllers\UsuarioController.java
+C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\CorsConfig.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\controllers\TipoUsuarioController.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\models\Actividad.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\service\PersonaServiceImpl.java
