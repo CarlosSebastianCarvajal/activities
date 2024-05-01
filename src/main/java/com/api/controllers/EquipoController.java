@@ -1,8 +1,10 @@
 
 package com.api.controllers;
 
+import com.api.clasesRequestModels.EquipoIntegrantesReqModel;
 import com.api.models.Equipo;
 import com.api.serviceinterface.IEquipoService;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -32,19 +34,36 @@ public class EquipoController {
     
     @PostMapping("/crearEquipo")
     @ResponseStatus(HttpStatus.CREATED)
-    public Equipo nuevo(@RequestBody Equipo equipo){
-    	return iEquipoService.GuardarActualizar(equipo);
+    public JsonObject nuevo(@RequestBody Equipo equipo){
+    	return iEquipoService.Guardar(equipo);
     }
     
     @PostMapping("/editarEquipo")
     @ResponseStatus(HttpStatus.CREATED)
-    public Equipo editar(@RequestBody Equipo equipo){
-        return iEquipoService.GuardarActualizar(equipo);
+    public JsonObject editar(@RequestBody Equipo equipo){
+        return iEquipoService.Actualizar(equipo);
     }
     
     @PostMapping("/eliminarEquipo/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(@PathVariable Long id) {
         iEquipoService.EliminarPorId(id);
+    }
+    
+    @PostMapping("/guardarEquipoIntegrantes")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JsonObject GuardarEquipoIntegrantes(@RequestBody EquipoIntegrantesReqModel eirq) {
+        return iEquipoService.GuardarEquipoIntegrantes(eirq);
+    }
+    
+    @PostMapping("/listarMisEquipos/{idUsuario}")
+    public JsonObject ListarMisEquipos(@PathVariable Long idUsuario){
+    	return iEquipoService.ListarMisEquipos(idUsuario);
+    }
+    
+    //Cumplimiento
+    @PostMapping("/listarEquiposIngresados/{idUsuario}")
+    public JsonObject ListarEquiposIngresados(@PathVariable Long idUsuario){
+    	return iEquipoService.ListarEquiposIngresados(idUsuario);
     }
 }

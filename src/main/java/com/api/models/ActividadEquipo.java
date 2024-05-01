@@ -20,6 +20,14 @@ public class ActividadEquipo {
     
     private Long idequipo, idactividad;
 
+    public ActividadEquipo() {
+    }
+
+    public ActividadEquipo(Long idequipo, Long idactividad) {
+        this.idequipo = idequipo;
+        this.idactividad = idactividad;
+    }
+    
     public Long getIdactividadequipo() {
         return idactividadequipo;
     }

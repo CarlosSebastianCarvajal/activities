@@ -2,6 +2,7 @@
 package com.api.serviceinterface;
 
 import com.api.models.Actividad;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 /**
  *
@@ -11,7 +12,7 @@ public interface IActividadService {
     //Principales
     public List<Actividad> ListarTodo();
     
-    public Actividad BuscarPorId(Long id);
+    public JsonObject BuscarPorId(Long id);
 	
     public Actividad GuardarActualizar(Actividad actividad);
 	

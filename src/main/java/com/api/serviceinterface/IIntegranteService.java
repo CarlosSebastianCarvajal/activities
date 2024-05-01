@@ -2,6 +2,7 @@
 package com.api.serviceinterface;
 
 import com.api.models.Integrante;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 /**
  *
@@ -18,5 +19,9 @@ public interface IIntegranteService {
     public void EliminarPorId(Long id);  
     
     //Secundarios
+    public JsonObject VerIntegrantesPorIdEquipo(Long idequipo);
     
+    public JsonObject AgregarIntegrantes(List<Integrante> listaIntegrantes);
+    
+    public JsonObject QuitarIntegrante(Long idIntegrante);
 }

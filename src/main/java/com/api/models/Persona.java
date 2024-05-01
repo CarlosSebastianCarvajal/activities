@@ -6,6 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -24,9 +27,24 @@ public class Persona {
     private String apellidos;
     
     
-    private Date fechanacimiento;
+    @Temporal(TemporalType.DATE)
+    private LocalDate fechanacimiento;
     
     private String telefono, correo, direccion;
+
+    public Persona() {
+    }
+
+    public Persona(Long idpersona, Long idciudad, String nombres, String apellidos, LocalDate fechanacimiento, String telefono, String correo, String direccion) {
+        this.idpersona = idpersona;
+        this.idciudad = idciudad;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.fechanacimiento = fechanacimiento;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.direccion = direccion;
+    }
 
     public Long getIdpersona() {
         return idpersona;
@@ -60,11 +78,11 @@ public class Persona {
         this.apellidos = apellidos;
     }
 
-    public Date getFechanacimiento() {
+    public LocalDate getFechanacimiento() {
         return fechanacimiento;
     }
 
-    public void setFechanacimiento(Date fechanacimiento) {
+    public void setFechanacimiento(LocalDate fechanacimiento) {
         this.fechanacimiento = fechanacimiento;
     }
 
@@ -88,9 +106,9 @@ public class Persona {
         return direccion;
     }
 
-    public void setDireccion(String direcion) {
-        this.direccion = direcion;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
-    
+
     
 }

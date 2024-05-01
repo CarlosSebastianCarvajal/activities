@@ -25,6 +25,11 @@ public class Cumplimiento {
     
     private String observacion, pathdocevidencia;
 
+    public Cumplimiento(Long idintegrante, Long idactividadequipo) {
+        this.idintegrante = idintegrante;
+        this.idactividadequipo = idactividadequipo;
+    }
+    
     public Long getIdcumplimiento() {
         return idcumplimiento;
     }

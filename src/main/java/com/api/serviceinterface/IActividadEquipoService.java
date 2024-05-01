@@ -1,7 +1,11 @@
 
 package com.api.serviceinterface;
 
+import com.api.clasesRequestModels.ActividadEquipoReqModel;
+import com.api.clasesRequestModels.ActualizaActividadEquipoReqModel;
+import com.api.clasesRequestModels.ListarActividadesCumplimientoReqModel;
 import com.api.models.ActividadEquipo;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 /**
  *
@@ -15,7 +19,20 @@ public interface IActividadEquipoService {
 	
     public ActividadEquipo GuardarActualizar(ActividadEquipo actividadEquipo);
 	
-    public void EliminarPorId(Long id);  
+    public JsonObject EliminarPorId(Long id);  
     
     //Secundarios
+    public JsonObject GuardarActividadEquipoActividad(ActividadEquipoReqModel actividadEquipoReqModel);
+    
+    public JsonObject ActualizaActividadEquipoActividad(ActualizaActividadEquipoReqModel actualizaActividadEquipoReqModel);
+    
+    public JsonObject DetalleActividadEquipo(Long idActividadEquipo);
+    
+    public JsonObject ListarActividadesEquipo(Long idEquipo);
+    
+    //Cumplimiento
+    public JsonObject ListarActividadesEquipoCumplimiento(ListarActividadesCumplimientoReqModel lacReqModel);
+    
+    //public JsonObject DetalleActividadEquipo(Long idActividadEquipo);
+    
 }

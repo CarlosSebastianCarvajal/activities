@@ -5,8 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.util.Date;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.time.LocalDate;
 
 /**
  *
@@ -22,10 +25,13 @@ public class ActividadPersonal {
     
     private Long idusuario, idactividad;
     
-    private Date fechacumplida;
+    @Temporal(TemporalType.DATE)
+    private LocalDate fechacumplida;
     
     private String observacion, pathdocevidencia;
 
+    
+    
     public Long getIdactividadpersonal() {
         return idactividadpersonal;
     }
@@ -50,11 +56,11 @@ public class ActividadPersonal {
         this.idusuario = idusuario;
     }
 
-    public Date getFechacumplida() {
+    public LocalDate getFechacumplida() {
         return fechacumplida;
     }
 
-    public void setFechacumplida(Date fechacumplida) {
+    public void setFechacumplida(LocalDate fechacumplida) {
         this.fechacumplida = fechacumplida;
     }
 

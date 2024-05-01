@@ -3,6 +3,7 @@ package com.api.controllers;
 
 import com.api.models.Integrante;
 import com.api.serviceinterface.IIntegranteService;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,5 +48,21 @@ public class IntegranteController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(@PathVariable Long id) {
         iIntegranteService.EliminarPorId(id);
+    }
+    
+    @PostMapping("/verIntegrantesPorIdEquipo/{idEquipo}")
+    public JsonObject VerIntegrantesPorIdEquipo(@PathVariable Long idEquipo){
+    	return iIntegranteService.VerIntegrantesPorIdEquipo(idEquipo);
+    }
+    
+    @PostMapping("/agregarIntegrantes")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JsonObject AgregarIntegrantes(@RequestBody List<Integrante> listaIntegrantes){
+    	return iIntegranteService.AgregarIntegrantes(listaIntegrantes);
+    }
+    
+    @PostMapping("/quitarIntegrante/{idIntegrante}")
+    public JsonObject quitarIntegrante(@PathVariable Long idIntegrante){
+    	return iIntegranteService.QuitarIntegrante(idIntegrante);
     }
 }

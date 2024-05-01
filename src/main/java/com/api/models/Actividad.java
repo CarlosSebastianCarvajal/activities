@@ -5,7 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import java.time.LocalDate;
 import java.util.Date;
 
 /**
@@ -24,8 +28,13 @@ public class Actividad {
     
     private String nombre, descripcion, pathdocguia;
     
-    private Date fechacreacion, fechaculminacion;
-
+    @Temporal(TemporalType.DATE)
+    private LocalDate fechacreacion;
+    
+    @Temporal(TemporalType.DATE)
+    private LocalDate fechaculminacion;
+    
+    
     public Long getIdactividad() {
         return idactividad;
     }
@@ -66,19 +75,19 @@ public class Actividad {
         this.pathdocguia = pathdocguia;
     }
 
-    public Date getFechacreacion() {
+    public LocalDate getFechacreacion() {
         return fechacreacion;
     }
 
-    public void setFechacreacion(Date fechacreacion) {
+    public void setFechacreacion(LocalDate fechacreacion) {
         this.fechacreacion = fechacreacion;
     }
 
-    public Date getFechaculminacion() {
+    public LocalDate getFechaculminacion() {
         return fechaculminacion;
     }
 
-    public void setFechaculminacion(Date fechaculminacion) {
+    public void setFechaculminacion(LocalDate fechaculminacion) {
         this.fechaculminacion = fechaculminacion;
     }
 

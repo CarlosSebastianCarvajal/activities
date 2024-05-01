@@ -1,8 +1,12 @@
 
 package com.api.controllers;
 
+import com.api.clasesRequestModels.ActividadEquipoReqModel;
+import com.api.clasesRequestModels.ActualizaActividadEquipoReqModel;
+import com.api.clasesRequestModels.ListarActividadesCumplimientoReqModel;
 import com.api.models.ActividadEquipo;
 import com.api.serviceinterface.IActividadEquipoService;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,7 +48,40 @@ public class ActividadEquipoController {
     
     @PostMapping("/eliminarActividadEquipo/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void eliminar(@PathVariable Long id) {
-        iActividadEquipoService.EliminarPorId(id);
+    public JsonObject eliminar(@PathVariable Long id) {
+        return iActividadEquipoService.EliminarPorId(id);
     }
+    
+    @PostMapping("/guardarActividadEquipoActividad")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JsonObject GuardarActividadEquipoActividad(@RequestBody ActividadEquipoReqModel actividadEquipoReqModel){
+    	return iActividadEquipoService.GuardarActividadEquipoActividad(actividadEquipoReqModel);
+    }
+    
+    @PostMapping("/actualizaActividadEquipoActividad")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JsonObject ActualizaActividadEquipoActividad(@RequestBody ActualizaActividadEquipoReqModel aaeReqModel){
+    	return iActividadEquipoService.ActualizaActividadEquipoActividad(aaeReqModel);
+    }
+    
+    @PostMapping("/detalleActividadEquipo/{idActividadEquipo}")
+    public JsonObject DetalleActividadEquipo(@PathVariable Long idActividadEquipo){
+    	return iActividadEquipoService.DetalleActividadEquipo(idActividadEquipo);
+    }
+    
+    //    public JsonObject ListarActividadesEquipo(Long idEquipo) {
+    @PostMapping("/listarActividadesEquipo/{idEquipo}")
+    public JsonObject ListarActividadesEquipo(@PathVariable Long idEquipo){
+    	return iActividadEquipoService.ListarActividadesEquipo(idEquipo);
+    }
+    
+
+    //Cumplimiento
+    @PostMapping("/listarActividadesEquipoCumplimiento")
+    public JsonObject ListarActividadesEquipoCumplimiento(@RequestBody ListarActividadesCumplimientoReqModel lacReqModel){
+    	return iActividadEquipoService.ListarActividadesEquipoCumplimiento(lacReqModel);
+    }
+    
+    
+    
 }

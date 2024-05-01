@@ -2,6 +2,7 @@
 package com.api.serviceinterface;
 
 import com.api.models.Cumplimiento;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 /**
  *
@@ -20,4 +21,5 @@ public interface ICumplimientoService {
     public void EliminarPorId(Long id);  
     
     //Secundarios
+    public JsonObject CumplirActividad(Cumplimiento cumplimientoReq);
 }

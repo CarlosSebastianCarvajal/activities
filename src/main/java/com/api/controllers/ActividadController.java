@@ -3,6 +3,7 @@ package com.api.controllers;
 
 import com.api.models.Actividad;
 import com.api.serviceinterface.IActividadService;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +27,7 @@ public class ActividadController {
     }
     
     @PostMapping("/verActividad/{id}")
-    public Actividad listarPorId(@PathVariable Long id){
+    public JsonObject listarPorId(@PathVariable Long id){
     	return iActividadService.BuscarPorId(id);
     }
     

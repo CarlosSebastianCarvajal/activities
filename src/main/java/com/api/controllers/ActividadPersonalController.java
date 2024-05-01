@@ -1,8 +1,10 @@
 
 package com.api.controllers;
 
+import com.api.clasesCompuestas.ActividadPersonalActividad;
 import com.api.models.ActividadPersonal;
 import com.api.serviceinterface.IActividadPersonalService;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,5 +48,27 @@ public class ActividadPersonalController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(@PathVariable Long id) {
         iActividadService.EliminarPorId(id);
+    }
+    
+    ////// METODOS DE GESTION DE OBJETOS COMPUESTOS
+    
+    @PostMapping("/guardarActividadPersonalActividad")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JsonObject GuardarActividadPersonalActividad(@RequestBody ActividadPersonalActividad actividadPersonalActividad){
+    	return iActividadService.GuardarActividadPersonalActividad(actividadPersonalActividad);
+    }
+    @PostMapping("/listarActividadPersonalActividad/{idUsuario}")
+    public JsonObject ListarActividadPersonalActividad(@PathVariable Long idUsuario){
+    	return iActividadService.ListarActividadPersonalActividad(idUsuario);
+    }
+    
+    @PostMapping("/verActividadPersonalActividad/{idActividadPersonal}")
+    public JsonObject VerActividadPersonalActividad(@PathVariable Long idActividadPersonal){
+    	return iActividadService.VerActividadPersonalActividad(idActividadPersonal);
+    }
+    
+    @PostMapping("/cumplirActividadPersonalActividad")
+    public JsonObject CumplirActividadPersonal(@RequestBody ActividadPersonal actividadPersonal){
+    	return iActividadService.CumplirActividadPersonal(actividadPersonal);
     }
 }
