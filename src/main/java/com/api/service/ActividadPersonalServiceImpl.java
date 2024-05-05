@@ -13,12 +13,11 @@ import com.api.clasesCompuestas.ActividadPersonalActividad;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.api.Comun;
 /**
  *
  * @author Sebastian Carvajal
@@ -35,6 +34,8 @@ public class ActividadPersonalServiceImpl implements IActividadPersonalService {
     @Autowired
     private CiudadDao ciudadDao;
 
+    final private  Comun comun = new Comun();
+    
     @Override
     public List<ActividadPersonal> ListarTodo() {
         return (List<ActividadPersonal>) actividadPersonalDao.findAll();
@@ -124,7 +125,7 @@ public class ActividadPersonalServiceImpl implements IActividadPersonalService {
                                 actividad.getDescripcion(),
                                 actividad.getPathdocguia(),
                                 estado,
-                                actividad.getFechaculminacion(),
+                                comun.FechaString(actividad.getFechaculminacion()),
                                 act.getObservacion(),
                                 act.getPathdocevidencia(),
                                 act.getFechacumplida()
@@ -165,7 +166,7 @@ public class ActividadPersonalServiceImpl implements IActividadPersonalService {
                         a.getDescripcion(),
                         a.getPathdocguia(),
                         estado,
-                        a.getFechaculminacion(),
+                        comun.FechaString(a.getFechaculminacion()),
                         ap.getObservacion(),
                         ap.getPathdocevidencia(),
                         ap.getFechacumplida()
@@ -191,7 +192,7 @@ public class ActividadPersonalServiceImpl implements IActividadPersonalService {
         JsonObject json = new JsonObject();
         ActividadPersonal ap = actividadPersonalDao.findById(actividadPersonal.getIdactividadpersonal()).orElse(null);
         if (ap != null) {
-            ap.setFechacumplida(actividadPersonal.getFechacumplida());
+            ap.setFechacumplida(LocalDate.now());
             ap.setObservacion(actividadPersonal.getObservacion());
             ap.setPathdocevidencia(actividadPersonal.getPathdocevidencia());
             ActividadPersonal res = actividadPersonalDao.save(ap);
@@ -212,5 +213,6 @@ public class ActividadPersonalServiceImpl implements IActividadPersonalService {
 
         return json;
     }
+    
 
 }

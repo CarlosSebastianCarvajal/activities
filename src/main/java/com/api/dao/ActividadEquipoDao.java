@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
  * @author Sebastian Carvajal
  */
 public interface ActividadEquipoDao extends CrudRepository<ActividadEquipo, Object>{
-    @Query("select a from ActividadEquipo a where a.idequipo = ?1")
+    @Query("select a from ActividadEquipo a where a.idequipo = ?1 order by idactividadequipo desc")
     List<ActividadEquipo> ListarActividadesEquipoPorIdEquipo(Long idequipo);
     
     @Query("select a from Actividad a inner join ActividadEquipo ae on a.idactividad = ae.idactividad where ae.idactividadequipo = ?1 ")

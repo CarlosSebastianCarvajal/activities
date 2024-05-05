@@ -13,8 +13,7 @@ public class ActividadPersonalCompleta {
     public Long id;
     public String  ciudad, nombre, descripcion, pathdocguia, estado;
     
-    @Temporal(TemporalType.DATE)
-    public LocalDate fechaculminacion;
+    public String fechaculminacion;
     
     public String observacion, pathdocevidencia;
     
@@ -23,7 +22,7 @@ public class ActividadPersonalCompleta {
 
     public ActividadPersonalCompleta(){};
     
-    public ActividadPersonalCompleta(Long id, String ciudad, String nombre, String descripcion, String pathdocguia, String estado, LocalDate fechaculminacion, String observacion, String pathdocevidencia, LocalDate fechacumplida) {
+    public ActividadPersonalCompleta(Long id, String ciudad, String nombre, String descripcion, String pathdocguia, String estado, String fechaculminacion, String observacion, String pathdocevidencia, LocalDate fechacumplida) {
         this.id = id;
         this.ciudad = ciudad;
         this.nombre = nombre;
@@ -84,11 +83,11 @@ public class ActividadPersonalCompleta {
         this.estado = estado;
     }
 
-    public LocalDate getFechaculminacion() {
+    public String getFechaculminacion() {
         return fechaculminacion;
     }
 
-    public void setFechaculminacion(LocalDate fechaculminacion) {
+    public void setFechaculminacion(String fechaculminacion) {
         this.fechaculminacion = fechaculminacion;
     }
 

@@ -26,7 +26,17 @@ public class Integrante {
     
     private boolean aceptacion, activo;
 
-    
+    public Integrante() {
+    }
+
+    public Integrante(Long idequipo, Long idusuario, String correoref, boolean aceptacion, boolean activo) {
+        this.idequipo = idequipo;
+        this.idusuario = idusuario;
+        this.correoref = correoref;
+        this.aceptacion = aceptacion;
+        this.activo = activo;
+    }
+
     public Long getIdintegrante() {
         return idintegrante;
     }

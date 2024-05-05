@@ -3,6 +3,7 @@ package com.api.controllers;
 
 import com.api.models.Cumplimiento;
 import com.api.serviceinterface.ICumplimientoService;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,5 +47,13 @@ public class CumplimientoController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(@PathVariable Long id) {
         iCumplimientoService.EliminarPorId(id);
+    }
+    
+    
+    //Cumplimiento actividad equipo
+    @PostMapping("/cumplirActividadEquipo")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JsonObject CumplirActividadEquip(@RequestBody Cumplimiento cumplimientoReq){
+        return iCumplimientoService.CumplirActividad(cumplimientoReq);
     }
 }

@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -21,10 +21,24 @@ public class Cumplimiento {
     
     private Long idintegrante, idactividadequipo;
     
-    private Date fechacumplida;
+    private LocalDate fechacumplida;
     
     private String observacion, pathdocevidencia;
 
+    public Cumplimiento() {
+    }
+
+    public Cumplimiento(Long idcumplimiento, Long idintegrante, Long idactividadequipo, LocalDate fechacumplida, String observacion, String pathdocevidencia) {
+        this.idcumplimiento = idcumplimiento;
+        this.idintegrante = idintegrante;
+        this.idactividadequipo = idactividadequipo;
+        this.fechacumplida = fechacumplida;
+        this.observacion = observacion;
+        this.pathdocevidencia = pathdocevidencia;
+    }
+    
+    
+    
     public Cumplimiento(Long idintegrante, Long idactividadequipo) {
         this.idintegrante = idintegrante;
         this.idactividadequipo = idactividadequipo;
@@ -54,11 +68,11 @@ public class Cumplimiento {
         this.idactividadequipo = idactividadequipo;
     }
 
-    public Date getFechacumplida() {
+    public LocalDate getFechacumplida() {
         return fechacumplida;
     }
 
-    public void setFechacumplida(Date fechacumplida) {
+    public void setFechacumplida(LocalDate fechacumplida) {
         this.fechacumplida = fechacumplida;
     }
 

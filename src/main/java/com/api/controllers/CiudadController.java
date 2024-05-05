@@ -3,6 +3,7 @@ package com.api.controllers;
 
 import com.api.models.Ciudad;
 import com.api.serviceinterface.ICiudadService;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,5 +48,10 @@ public class CiudadController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void eliminar(@PathVariable Long id) {
         iCiudadService.EliminarPorId(id);
+    }
+    
+    @PostMapping("/listarCiudadesPorIdPais/{idpais}")
+    public JsonObject ListarCiudadesPorIdPais(@PathVariable Long idpais){
+    	return iCiudadService.ListarCiudadesPorIdPais(idpais);
     }
 }

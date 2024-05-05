@@ -42,7 +42,7 @@ public class CumplimientoServiceImpl implements ICumplimientoService{
         
         cumplimiento.setIdintegrante(c.getIdintegrante());
         cumplimiento.setIdactividadequipo(c.getIdactividadequipo());
-        cumplimiento.setFechacumplida(new Date());
+        cumplimiento.setFechacumplida(LocalDate.now());
         return cumplimientoDao.save(cumplimiento);
     }
 
@@ -56,7 +56,7 @@ public class CumplimientoServiceImpl implements ICumplimientoService{
         JsonObject json = new JsonObject();
         Cumplimiento c = cumplimientoDao.findById(cumplimientoReq.getIdcumplimiento()).orElse(null);
         if(c != null){
-            c.setFechacumplida(cumplimientoReq.getFechacumplida());
+            c.setFechacumplida(LocalDate.now());
             c.setObservacion(cumplimientoReq.getObservacion());
             c.setPathdocevidencia(cumplimientoReq.getPathdocevidencia());
             cumplimientoDao.save(c);

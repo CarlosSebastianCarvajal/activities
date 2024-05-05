@@ -14,6 +14,7 @@ com\api\models\ActividadPersonal.class
 com\api\clasesCompuestas\ActividadPersonalActividad.class
 com\api\clasesResponseModels\MisEquiposNumIntegrantes.class
 com\api\serviceinterface\IRegistroSesionService.class
+com\api\clasesRequestModels\EquipoCorreoIntegrantesReqModel.class
 com\api\dao\PersonaDao.class
 com\api\serviceinterface\IPersonaService.class
 com\api\controllers\PaisController.class
@@ -25,6 +26,7 @@ com\api\models\Usuario.class
 com\api\serviceinterface\IPaisService.class
 com\api\dao\PaisDao.class
 com\api\clasesRequestModels\ActualizaActividadEquipoReqModel.class
+com\api\clasesResponseModels\IntegranteActividadCumplimiento.class
 com\api\dao\IntegranteDao.class
 com\api\serviceinterface\IActividadService.class
 com\api\dao\ActividadEquipoDao.class
@@ -38,6 +40,7 @@ com\api\controllers\CumplimientoController.class
 com\api\clasesResponseModels\ActividadCumplimiento.class
 com\api\serviceinterface\IEquipoService.class
 com\api\serviceinterface\ITipoUsuarioService.class
+com\api\Comun.class
 com\api\ActivitiesApplication.class
 com\api\dao\ActividadDao.class
 com\api\dao\CiudadDao.class
@@ -70,6 +73,7 @@ com\api\controllers\TipoUsuarioController.class
 com\api\CorsConfig.class
 com\api\serviceinterface\IActividadPersonalService.class
 com\api\serviceinterface\ICumplimientoService.class
+com\api\clasesRequestModels\ActividadEquipoIntegranteReqModel.class
 com\api\controllers\ActividadEquipoController.class
 com\api\service\TipoUsuarioServiceImpl.class
 com\api\dao\UsuarioDao.class

@@ -1,6 +1,7 @@
 
 package com.api.serviceinterface;
 
+import com.api.clasesRequestModels.ActividadEquipoIntegranteReqModel;
 import com.api.clasesRequestModels.ActividadEquipoReqModel;
 import com.api.clasesRequestModels.ActualizaActividadEquipoReqModel;
 import com.api.clasesRequestModels.ListarActividadesCumplimientoReqModel;
@@ -33,6 +34,7 @@ public interface IActividadEquipoService {
     //Cumplimiento
     public JsonObject ListarActividadesEquipoCumplimiento(ListarActividadesCumplimientoReqModel lacReqModel);
     
+    public JsonObject DetalleActividadEquipoCumplimiento(ActividadEquipoIntegranteReqModel aeiReqModel);
     //public JsonObject DetalleActividadEquipo(Long idActividadEquipo);
     
 }

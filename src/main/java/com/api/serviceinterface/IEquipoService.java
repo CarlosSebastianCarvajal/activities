@@ -1,6 +1,7 @@
 
 package com.api.serviceinterface;
 
+import com.api.clasesRequestModels.EquipoCorreoIntegrantesReqModel;
 import com.api.clasesRequestModels.EquipoIntegrantesReqModel;
 import com.api.models.Equipo;
 import com.github.cliftonlabs.json_simple.JsonObject;
@@ -23,6 +24,8 @@ public interface IEquipoService{
     
     //Secundarios
     public JsonObject GuardarEquipoIntegrantes(EquipoIntegrantesReqModel eirq);
+    
+    public JsonObject GuardarEquipoIntegrantesListaCorreo(EquipoCorreoIntegrantesReqModel ecirq);
    
     public JsonObject ListarMisEquipos(Long idUsuario);
     

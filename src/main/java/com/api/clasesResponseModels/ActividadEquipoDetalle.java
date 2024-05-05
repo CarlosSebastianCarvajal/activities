@@ -13,14 +13,19 @@ public class ActividadEquipoDetalle {
     ActividadEquipo actividadEquipo;
     Actividad actividad;
     List<CumplimientoConDatos> listaCumplimiento;
+    String actividadfechacreacion, actividadfechalimite, paisciudad, cumplimiento;
 
     public ActividadEquipoDetalle() {
     }
 
-    public ActividadEquipoDetalle(ActividadEquipo actividadEquipo, Actividad actividad, List<CumplimientoConDatos> listaCumplimiento) {
+    public ActividadEquipoDetalle(ActividadEquipo actividadEquipo, Actividad actividad, List<CumplimientoConDatos> listaCumplimiento, String actividadfechacreacion, String actividadfechalimite, String paisciudad, String cumplimiento) {
         this.actividadEquipo = actividadEquipo;
         this.actividad = actividad;
         this.listaCumplimiento = listaCumplimiento;
+        this.actividadfechacreacion = actividadfechacreacion;
+        this.actividadfechalimite = actividadfechalimite;
+        this.paisciudad = paisciudad;
+        this.cumplimiento = cumplimiento;
     }
 
     public ActividadEquipo getActividadEquipo() {
@@ -46,6 +51,39 @@ public class ActividadEquipoDetalle {
     public void setListaCumplimiento(List<CumplimientoConDatos> listaCumplimiento) {
         this.listaCumplimiento = listaCumplimiento;
     }
+
+    public String getActividadfechacreacion() {
+        return actividadfechacreacion;
+    }
+
+    public void setActividadfechacreacion(String actividadfechacreacion) {
+        this.actividadfechacreacion = actividadfechacreacion;
+    }
+
+    public String getActividadfechalimite() {
+        return actividadfechalimite;
+    }
+
+    public void setActividadfechalimite(String actividadfechalimite) {
+        this.actividadfechalimite = actividadfechalimite;
+    }
+
+    public String getPaisciudad() {
+        return paisciudad;
+    }
+
+    public void setPaisciudad(String paisciudad) {
+        this.paisciudad = paisciudad;
+    }
+
+    public String getCumplimiento() {
+        return cumplimiento;
+    }
+
+    public void setCumplimiento(String cumplimiento) {
+        this.cumplimiento = cumplimiento;
+    }
+    
     
     
 }

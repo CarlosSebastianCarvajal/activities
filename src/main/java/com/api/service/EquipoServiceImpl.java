@@ -1,13 +1,17 @@
 package com.api.service;
 
+import com.api.clasesRequestModels.EquipoCorreoIntegrantesReqModel;
 import com.api.clasesRequestModels.EquipoIntegrantesReqModel;
 import com.api.clasesResponseModels.EquipoCumplimiento;
 import com.api.clasesResponseModels.MisEquiposNumIntegrantes;
 import com.api.serviceinterface.IEquipoService;
 import com.api.dao.EquipoDao;
+import com.api.dao.UsuarioDao;
 import com.api.dao.IntegranteDao;
+import com.api.dao.UsuarioDao;
 import com.api.models.Equipo;
 import com.api.models.Integrante;
+import com.api.models.Usuario;
 import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +33,9 @@ public class EquipoServiceImpl implements IEquipoService {
     @Autowired
     private IntegranteDao integranteDao;
 
+    @Autowired
+    private UsuarioDao usuarioDao;
+    
     @Override
     public List<Equipo> ListarTodo() {
         return (List<Equipo>) equipoDao.findAll();
@@ -92,11 +99,55 @@ public class EquipoServiceImpl implements IEquipoService {
                         integrantesNoRegistrados.add(integrante);
                     }
                 }
-                EnviarCorreoInvitacionRegistro(integrantesNoRegistrados);
+                //EnviarCorreoInvitacionRegistro(integrantesNoRegistrados);
                 EnviarCorreoInvitacionEquipo(eirq.getIntegrantes());
                 json.put("access", 1);
                 json.put("message", "Equipo guardado con éxito");
                 json.put("info", eq);
+            } else {
+                json.put("access", 0);
+                json.put("message", "Error al guardar el equipo");
+                json.put("info", "void");
+            }
+        } catch (Exception ex) {
+            json.put("access", 0);
+            json.put("message", "Ocurrió una exepción al guardar: " + ex.getMessage());
+            json.put("info", "void");
+        }
+        return json;
+    }
+    
+    @Override
+    public JsonObject GuardarEquipoIntegrantesListaCorreo(EquipoCorreoIntegrantesReqModel ecirq){
+        JsonObject json = new JsonObject();
+        try {
+            List<String> correosNoRegistrados = new ArrayList<String>();
+            List<Integrante> integrantesIngresados = new ArrayList<Integrante>();
+            Equipo eq = equipoDao.save(ecirq.getEquipo());
+            if(eq != null){
+                for(String correoIntegrante : ecirq.getCorreosintegrantes()){
+                    Usuario u = usuarioDao.UsuarioPorCorreo(correoIntegrante);
+                    if(u != null){
+                        Integrante integrante = new Integrante(
+                                eq.getIdequipo(), 
+                                u.getIdusuario(),
+                                correoIntegrante,
+                                true,
+                                true
+                        );
+                        integranteDao.save(integrante);
+                        integrantesIngresados.add(integrante);
+                    }else{
+                        correosNoRegistrados.add(correoIntegrante);
+                    }
+                }
+                json.put("access", 1);
+                json.put("message", "Equipo guardado con éxito");
+                json.put("info", new EquipoCorreoIntegrantesReqModel(eq, correosNoRegistrados));
+
+                EnviarCorreoInvitacionRegistro(correosNoRegistrados);
+                EnviarCorreoInvitacionEquipo(integrantesIngresados);
+                
             } else {
                 json.put("access", 0);
                 json.put("message", "Error al guardar el equipo");
@@ -121,7 +172,7 @@ public class EquipoServiceImpl implements IEquipoService {
                 misEquipos.add(new MisEquiposNumIntegrantes(e, numeroIntegrantes));
             }
             json.put("access", 1);
-            json.put("message", "Equipo guardado con éxito");
+            json.put("message", "Equipos extraídos correctamente");
             json.put("info", misEquipos);
         } else {
             json.put("access", 0);
@@ -160,7 +211,7 @@ public class EquipoServiceImpl implements IEquipoService {
     }
 
     // Metodos extras 
-    public void EnviarCorreoInvitacionRegistro(List<Integrante> listaIntegrantes) {
+    public void EnviarCorreoInvitacionRegistro(List<String> listaCorroesIntegrantes) {
     }
 
     public void EnviarCorreoInvitacionEquipo(List<Integrante> listaIntegrantes) {

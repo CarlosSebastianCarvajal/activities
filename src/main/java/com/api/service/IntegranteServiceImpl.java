@@ -69,7 +69,7 @@ public class IntegranteServiceImpl implements IIntegranteService {
                     integrantesNoRegistrados.add(integrante);
                 }
             }
-            esImpl.EnviarCorreoInvitacionRegistro(integrantesNoRegistrados);
+            //esImpl.EnviarCorreoInvitacionRegistro(integrantesNoRegistrados);
             esImpl.EnviarCorreoInvitacionEquipo(listaIntegrantes);
             json.put("access", 1);
             json.put("message", "Equipo guardado con éxito");

@@ -11,17 +11,19 @@ import com.api.models.Actividad;
 public class ActividadCumplimiento {
     Actividad actividad;
     String estado;
+    String fechaculminacion;
     Long idactividadequipo;
     Long idcumplimiento;
 
     public ActividadCumplimiento() {
     }
 
-    public ActividadCumplimiento(Actividad actividad, String estado, Long idactividadequipo, Long idcumplimiento) {
+    public ActividadCumplimiento(Actividad actividad, String estado, Long idactividadequipo, Long idcumplimiento, String fechaculminacion) {
         this.actividad = actividad;
         this.estado = estado;
         this.idactividadequipo = idactividadequipo;
         this.idcumplimiento = idcumplimiento;
+        this.fechaculminacion = fechaculminacion;
     }
 
     public Actividad getActividad() {
@@ -55,4 +57,14 @@ public class ActividadCumplimiento {
     public void setIdcumplimiento(Long idcumplimiento) {
         this.idcumplimiento = idcumplimiento;
     }
+
+    public String getFechaculminacion() {
+        return fechaculminacion;
+    }
+
+    public void setFechaculminacion(String fechaculminacion) {
+        this.fechaculminacion = fechaculminacion;
+    }
+    
+    
 }

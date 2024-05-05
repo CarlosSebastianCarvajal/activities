@@ -1,6 +1,7 @@
 
 package com.api.controllers;
 
+import com.api.clasesRequestModels.ActividadEquipoIntegranteReqModel;
 import com.api.clasesRequestModels.ActividadEquipoReqModel;
 import com.api.clasesRequestModels.ActualizaActividadEquipoReqModel;
 import com.api.clasesRequestModels.ListarActividadesCumplimientoReqModel;
@@ -81,7 +82,11 @@ public class ActividadEquipoController {
     public JsonObject ListarActividadesEquipoCumplimiento(@RequestBody ListarActividadesCumplimientoReqModel lacReqModel){
     	return iActividadEquipoService.ListarActividadesEquipoCumplimiento(lacReqModel);
     }
-    
+    //DetalleActividadEquipoCumplimiento(ActividadEquipoIntegranteReqModel aeiReqModel);
+    @PostMapping("/detalleActividadEquipoCumplimiento")
+    public JsonObject DetalleActividadEquipoCumplimiento(@RequestBody ActividadEquipoIntegranteReqModel aeiReqModel){
+    	return iActividadEquipoService.DetalleActividadEquipoCumplimiento(aeiReqModel);
+    } 
     
     
 }

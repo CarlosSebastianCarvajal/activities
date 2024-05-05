@@ -6,6 +6,7 @@ C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\ap
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\service\UsuarioServiceImpl.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\serviceinterface\ICumplimientoService.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\dao\PaisDao.java
+C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\clasesResponseModels\IntegranteActividadCumplimiento.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\dao\ActividadDao.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\dao\ActividadEquipoDao.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\dao\PersonaDao.java
@@ -44,6 +45,7 @@ C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\ap
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\models\Persona.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\dao\TipoUsuarioDao.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\service\EquipoServiceImpl.java
+C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\clasesRequestModels\ActividadEquipoIntegranteReqModel.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\clasesResponseModels\ActividadEquipoDetalle.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\clasesResponseModels\ActividadesEquipo.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\controllers\ActividadPersonalController.java
@@ -66,6 +68,7 @@ C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\ap
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\clasesCompuestas\ActividadPersonalActividad.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\controllers\IntegranteController.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\models\TipoUsuario.java
+C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\Comun.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\controllers\CiudadController.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\dao\ActividadPersonalDao.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\serviceinterface\IPaisService.java
@@ -73,5 +76,6 @@ C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\ap
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\controllers\EquipoController.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\ActivitiesApplication.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\clasesRequestModels\ListarActividadesCumplimientoReqModel.java
+C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\clasesRequestModels\EquipoCorreoIntegrantesReqModel.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\clasesResponseModels\ActividadPersonalCompleta.java
 C:\Users\Sebastian Carvajal\Documents\SpringBoot\activities\src\main\java\com\api\service\RegistroSesionServiceImpl.java

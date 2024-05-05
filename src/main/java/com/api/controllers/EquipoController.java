@@ -1,6 +1,7 @@
 
 package com.api.controllers;
 
+import com.api.clasesRequestModels.EquipoCorreoIntegrantesReqModel;
 import com.api.clasesRequestModels.EquipoIntegrantesReqModel;
 import com.api.models.Equipo;
 import com.api.serviceinterface.IEquipoService;
@@ -54,6 +55,12 @@ public class EquipoController {
     @ResponseStatus(HttpStatus.CREATED)
     public JsonObject GuardarEquipoIntegrantes(@RequestBody EquipoIntegrantesReqModel eirq) {
         return iEquipoService.GuardarEquipoIntegrantes(eirq);
+    }
+    
+    @PostMapping("/guardarEquipoIntegrantesListaCorreo")
+    @ResponseStatus(HttpStatus.CREATED)
+    public JsonObject GuardarEquipoIntegrantesListaCorreo(@RequestBody EquipoCorreoIntegrantesReqModel ecirq){
+        return iEquipoService.GuardarEquipoIntegrantesListaCorreo(ecirq);
     }
     
     @PostMapping("/listarMisEquipos/{idUsuario}")

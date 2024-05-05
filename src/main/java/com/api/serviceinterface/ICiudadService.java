@@ -5,6 +5,7 @@
 package com.api.serviceinterface;
 
 import com.api.models.Ciudad;
+import com.github.cliftonlabs.json_simple.JsonObject;
 import java.util.List;
 
 /**
@@ -23,4 +24,5 @@ public interface ICiudadService {
     public void EliminarPorId(Long id);  
     
     //Secundarios
+    public JsonObject ListarCiudadesPorIdPais(Long idpais);
 }
